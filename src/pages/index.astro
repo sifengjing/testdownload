@@ -1,0 +1,51 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import {config} from '~/config.ts';
+import { mainConfig } from '~/siteConfig';
+
+export const prerender = true;
+
+const metadata = {
+  title: config.site.home_Title,
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero>
+    <Fragment slot="title" >
+      <span class="text-accent dark:text-white highlight">
+        {config.site.hero_Title_1}
+      </span><br>
+    </Fragment>
+    <Fragment slot="title">
+      {config.site.hero_Title_2}
+    </Fragment>
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+      {config.site.hero_Description}
+      </span>
+    </Fragment>
+  </Hero>
+  
+
+<!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title={config.site.post_Title}
+  />
+  <div class="max-w-7xl mx-auto mt-8 px-4 md:px-6">
+    <h3 class="text-xl font-semibold mb-4">Frequently Asked Questions</h3>
+    {mainConfig.qa.map((faq, index) => (
+        <div key={index} class="mb-4">
+            <h5 class="font-bold text-lg mb-2">{faq.q}</h5>
+            <p>{faq.a}</p>
+        </div>
+    ))}
+  </div>
+</Layout>
+
