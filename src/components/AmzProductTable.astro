@@ -175,18 +175,19 @@ function handleStarClick(index) {
 				<div class="relative">
 					<!-- 产品图片 -->
           <Image
-          src={content.App_Image}
+          src={products.App_Image}
           alt={products.App_Title}
           loading="lazy"
           style="margin-top: 0.5em;margin-bottom: 0.5em; h-16 w-auto md:h-auto;"
           decoding="async"
         />
+        
 					<!-- 下载按钮 -->
           <Button
                 variants="btn-secondary"
                 class="mx-auto w-full text-lg bg-[#5195de] hover:bg-[#5195de] text-white font-bold rounded-md px-4 py-6 leading-none no-underline"
                 icon="tabler:download"
-                href={`${content.App_Download_Url}`}
+                href={`${products.App_Download_Url}`}
                 text="Download"
               />
 				</div>
